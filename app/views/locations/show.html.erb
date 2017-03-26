@@ -15,6 +15,11 @@
 
 <p>
   <strong>Opening hours:</strong>
+  <% if @location.open? %>
+    <span class="label label-success">OPEN</span>
+  <% else %>
+    <span class="label label-danger">CLOSED</span>    
+  <% end %>
   <%= opening_hours_for(@location) %>
 </p>
 
