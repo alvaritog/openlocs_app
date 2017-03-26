@@ -1,6 +1,7 @@
 class Location < ApplicationRecord
 
-  has_many :opening_rules
+  has_many :opening_rules, :dependent => :destroy
+  accepts_nested_attributes_for :opening_rules, :allow_destroy => true, reject_if: :all_blank
 
   validates_presence_of :address
 

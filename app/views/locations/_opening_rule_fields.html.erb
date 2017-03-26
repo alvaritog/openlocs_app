@@ -1,0 +1,7 @@
+<div class='opening-rule row'>
+  <%= f.input :id, as: :hidden %>
+  <div class='col-xs-3'><%= f.input :weekday, collection: OpeningRule.weekdays.keys %></div>
+  <div class='col-xs-2'><%= f.input :start_time %></div>
+  <div class='col-xs-2'><%= f.input :end_time %></div>
+  <%= link_to_remove_association "remove", f %>
+</div>
