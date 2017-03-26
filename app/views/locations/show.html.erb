@@ -15,5 +15,10 @@
   <%= @location.lon %>
 </p>
 
+<p>
+  <strong>Opening hours:</strong>
+  <%= opening_hours_for(@location) %>
+</p>
+
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
