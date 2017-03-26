@@ -4,6 +4,10 @@ class Location < ApplicationRecord
 
   validates_presence_of :address
 
+  def open?
+    opening_rules.open_at(DateTime.now).any?
+  end
+  
   def h_opening_rules
     opening_rules.weekdays.collect do |weekday_name,weekday_val| 
       rr = opening_rules.for_weekday(weekday_name)

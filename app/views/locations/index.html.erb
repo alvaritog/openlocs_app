@@ -2,7 +2,7 @@
 
 <h1>Locations</h1>
 
-<table>
+<table class="locations-index-table">
   <thead>
     <tr>
       <th>Address</th>
@@ -14,7 +14,7 @@
 
   <tbody>
     <% @locations.each do |location| %>
-      <tr>
+      <tr class="locations-index-row <%= location.open? ? 'open' : 'closed' %>">
         <td><%= location.address %></td>
         <td><%= location.lat %></td>
         <td><%= location.lon %></td>
