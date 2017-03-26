@@ -28,6 +28,7 @@ gem 'devise-i18n'
 gem 'high_voltage'
 gem 'mysql2', '~> 0.3.18'
 gem 'simple_form'
+gem "cocoon"
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
