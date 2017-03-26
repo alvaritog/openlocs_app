@@ -5,7 +5,7 @@ class Location < ApplicationRecord
   validates_presence_of :address
 
   def open?
-    opening_rules.open_at(DateTime.now).any?
+    opening_rules.open_at(DateTime.current).any?
   end
   
   def h_opening_rules
