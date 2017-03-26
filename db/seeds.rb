@@ -11,6 +11,23 @@ puts 'CREATED ADMIN USER: ' << user.email
 
 # SEED TEST LOCATIONS
 locations = CreateTestLocationsService.new.call
+locations.each do |loc|
+  OpeningRule.weekdays.each do |weekday_name, weekday_value|
+    opening_type = [:a,:b,:c,:d].sample
+    case opening_type
+      when :a
+        loc.opening_rules.create! weekday: weekday_name, start_time: "08:00", end_time: "12:00"    
+        loc.opening_rules.create! weekday: weekday_name, start_time: "16:00", end_time: "18:00"    
+      when :b
+        loc.opening_rules.create! weekday: weekday_name, start_time: "00:00", end_time: "23:59"    
+      when :c
+        loc.opening_rules.create! weekday: weekday_name, start_time: "08:00", end_time: "20:00"    
+      when :d
+    end
+  end
+end
+
 puts "LOCATIONS:"
-puts locations.as_json.pretty_inspect
+puts locations.as_json(include: {opening_rules: {only: [:weekday,:start_time,:end_time]}}).pretty_inspect
+
 
