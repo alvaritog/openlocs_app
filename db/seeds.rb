@@ -8,3 +8,9 @@
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file .env file.
+
+# SEED TEST LOCATIONS
+locations = CreateTestLocationsService.new.call
+puts "LOCATIONS:"
+puts locations.as_json.pretty_inspect
+
